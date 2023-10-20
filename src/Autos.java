@@ -1,32 +1,92 @@
 /*Esta clase es en la que se definiran los atributos y metodos de los objetos:*/
 public class Autos {
-    /*A continuacion se definiran las variables que representaran los atributos de esta clase. Para esto es muy
-    importante considerar que en POO, al definir atributos, el tipo de dato de estas tiene que ser declarado
-    redactando el nombre entero del tipo de dato (por ejemplo 'Integer' o 'Double') mas no usando su abreviatura
-    (por ejemplo 'int' o 'char'), puesto que estamos declarando variables de manera orientada a objetos, es decir
-    segun yo se tiene declarars asi porque, estos atributos al formar parte de los objetos, estos pueden darle
-    cualquier valor atributo */
-    String Marca;
-    String Modelo;
-    String Color = "Amarillito";  /*En esta clase 'Autos' se le esta asignando un valor al atributo 'Color'*/
-    Double Cilindraje;
+    /*Ahora, teniendo en cuenta el principio de encapsulamiento, se redfiniran los atributos como "private"*/
+    private String marca;
+    private String modelo;
+    private String color;
+    private Double cilindraje;
 
-    /*A continuacion se definiran los métodos de esta clase. Ya se había mencionado, pero hay que recordar que
-    all metodo son como funciones, y por ende se debera declarar el metodo como un funcion, es decir con su nombre,
-    el dato que va a retornar y entre parentesis los parametros que recibira. Cabe recalcar que estos metodos
-    pueden ser clases (creo) y por lo tanto el dato que van a retornar se debe declarar con mayuscula, y ademas en
-    POO tanto metodos, atributos y clases tienen que ser de tipo 'public' o 'private': */
+    /*Ahora que estos atributos se declararon siguiendo el principio de encapsulamiento (es decir ahora son
+    private), se tiene que emplear obligatoriamente los métodos para poder acceder y ejecutar los atributos. Pero
+    estos métodos ahora tambien deben estructurarse siguiendo el principio de encapsulamiento, es decir se deben
+    definir como 'public', y además ahora su funcion sera leer y asignar los valores a los atributos. En lo que
+    respecta a lectura del valor de los atributos, se usara 'this.' porque queremos obtener el valor especifico
+    asignado a los atributos heredados a los objetos (es decir queremos leer el valor del 'atributo del objeto'),
+    ya que recordemos que si no usamos el 'this.' estaremos leyendo o trabajando con los 'atributos de la clase',
+    y pues no queremos eso; es más, ahora que estos atributos siguen el principio de encapsulamiento, ni siquiera
+    pueden tener un valor dentro de la clase, ya que son 'private'.
+    Y en lo que respecta a los metodos que serviran para asignar valores a los atributos, tendremos que usar
+    parametros, especificamente cada uno de los atributos declarados, y se tendran que asignar a los 'atributos
+    del objeto', es decir a 'this.atributo':
+     */
+//    public String leerMarca(){  //metodo de lectura del atributo 'marca'
+//        return this.marca;
+//    }
+//    public void asignarMarca(String marca){  //metodo de asignacion del atributo 'marca'
+//        this.marca = marca;
+//    }
+//    public String leerModelo(){  //metodo de lectura del atributo 'modelo'
+//        return this.modelo;
+//    }
+//    public void asignarModelo(String modelo){  //metodo de asignacion del atributo 'modelo'
+//        this.modelo = modelo;
+//    }
+//    public String leerColor(){  //metodo de lectura del atributo 'color'
+//        return this.color;
+//    }
+//    public void asignarColor(String color){  //metodo de asignacion del atributo 'color'
+//        this.color = color;
+//    }
+//    public Double leerCilindraje(){  //metodo de lectura del atributo 'cilindraje'
+//        return this.cilindraje;
+//    }
+//    public void asignarCilindraje(Double cilindraje){  //metodo de asignacion del atributo 'cilindraje'
+//        this.cilindraje = cilindraje;
+//    }
+
+    /*Empleando el concepto de 'constructor': */
+
+    public Autos(String marca, String modelo, String color, Double cilindraje) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.color = color;
+        this.cilindraje = cilindraje;
+    }
+
+    /*Una vez definido que la POO se basa en utilizar metodos para cambiar el valor de las propiedades, es
+        necesario tener en cuenta que lo correcto seria colocar 'get' (para leer) y 'set' (para asignar) en el
+        nombre de los métodos de lectura y asignación, es decir tendriamos algo asi:*/
+    public String getMarca(){  //metodo de lectura del atributo 'marca'
+        return this.marca;
+    }
+//    public void setMarca(String marca){  //metodo de asignacion del atributo 'marca'
+//        this.marca = marca;
+//    }
+    public String getModelo(){  //metodo de lectura del atributo 'modelo'
+        return this.modelo;
+    }
+//    public void setModelo(String modelo){  //metodo de asignacion del atributo 'modelo'
+//        this.modelo = modelo;
+//    }
+    public String getColor(){  //metodo de lectura del atributo 'color'
+        return this.color;
+    }
+//    public void setColor(String color){  //metodo de asignacion del atributo 'color'
+//        this.color = color;
+//    }
+    public Double getCilindraje(){  //metodo de lectura del atributo 'cilindraje'
+        return this.cilindraje;
+    }
+//    public void setCilindraje(Double cilindraje){  //metodo de asignacion del atributo 'cilindraje'
+//        this.cilindraje = cilindraje;
+//    }
+
     public void detalleAuto(){
         String Color = "Cafecito";
-        System.out.println("\nMarca: " + this.Marca); /*Se usa esta notacion 'this.' para que se emplee el valor
-        dado al 'atributo del objeto', y no a un valor definido en esta clase principal, es decir que no use un
-        valor dado al 'atributo de la clase'. Por ejemplo podemos declarar un 'atributo de la clase' dentro de este
-        metodo y darle un valor cualquiera como en la linea 20, y si no usasemos la notacion 'this.' este 'atributo
-        de la clase' se heredaria al objeto por encima del valor que se le haya dado a su 'atributo del objeto', en
-        este caso el atributo 'Color'. Por eso es importante saber usar el 'this.'*/
-        System.out.println("Modelo: " + this.Modelo);
-        System.out.println("Color: " + this.Color);
-        System.out.println("Cilindraje: " + this.Cilindraje);
+        System.out.println("\nMarca: " + this.getMarca());
+        System.out.println("Modelo: " + this.getModelo());
+        System.out.println("Color: " + this.getColor());
+        System.out.println("Cilindraje: " + this.getCilindraje());
     }
 
     /*A continuacion se vera un nuevo metodo que hace lo mismo que el metodo de la linea 19, pero con la diferencia
@@ -37,20 +97,20 @@ public class Autos {
     objeto de clase 'StringBuilder'*/
     public String moarDetalles(){
         StringBuilder da = new StringBuilder();
-        da.append("\nMarca: " + this.Marca);
-        da.append("\nModelo: " + this.Modelo);
-        da.append("\nColor: " + this.Color);
-        da.append("\nCilindraje: " + this.Cilindraje);
+        da.append("\nMarca: " + this.getMarca());
+        da.append("\nModelo: " + this.getModelo());
+        da.append("\nColor: " + this.getColor());
+        da.append("\nCilindraje: " + this.getCilindraje());
         return da.toString();
     }
     /*Este método recien visto puede estructurarse de manera mas optima reemplazando toda la clase 'Stringbuilder'
     por simplemente la palabra 'String', asi evitando escribir todas esas lineas de codigo, ya que practicamente
     sera lo mismo pero mas ordenado:  */
     public String moarDetalles2(){
-        String da = "\nMarca: " + this.Marca +
-                "\nModelo: " + this.Modelo +
-                "\nColor: " + this.Color +
-                "\nCilindraje: " + this.Cilindraje;
+        String da = "\nMarca: " + this.getMarca() +
+                "\nModelo: " + this.getModelo() +
+                "\nColor: " + this.getColor() +
+                "\nCilindraje: " + this.getCilindraje();
         return da;
     }
 
@@ -59,13 +119,13 @@ public class Autos {
     simplemente 'int', pues es un dato cualquiera y no una clase.*/
 
         //Se pueden retornar los strings escribiendolos y concatenandolos directamente:
-        return "\nEl auto " + this.Marca + " (modelo '" + this.Modelo + "')" + " acelera a " + rpm + " rpm."; /*El
+        return "\nEl auto " + this.getMarca() + " (modelo '" + this.getModelo() + "')" + " acelera a " + rpm + " rpm."; /*El
         dato rpm no tiene la palabra reservada 'this.' pues no es una propiedad, solo es un dato.*/
     }
 
     /*And another metodo:  */
     public String frenado(int rpm, int fre){
-        return "\nEl auto " + this.Marca + " frena a " + rpm/fre + " rpm";
+        return "\nEl auto " + this.getMarca() + " frena a " + rpm/fre + " rpm";
     }
 
     /*Otro método que ahora retornara un dato tipo float, no una clase. Ademas contiene como parametros datos
@@ -75,7 +135,7 @@ public class Autos {
     }
 
     //Se realizara el mismo metodo de arriba, pero ahora recibira como parametro datos enteros en lugar de floats:
-    public float combustible(int km, int gln){
+    public int combustible(int km, int gln){
         return km/gln;
     }
 }

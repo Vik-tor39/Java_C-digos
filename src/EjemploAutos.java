@@ -9,7 +9,19 @@
         atributos.
         - Métodos: Practicamente son funciones que definen el comportamiento de los objetos, accediendo a los
         atributos de las clases o codificando otros procesos. Logicamente estos métodos tambien se definen en la
-        clase que instanciara al objeto que queramos cuente con este método.*/
+        clase que instanciara al objeto que queramos cuente con este método.
+        - Polimorfismo: Este concepto no aplica a programacion estructurada, pero en POO en cualquier lenguaje
+        este concepto existe. Se trata de definir cosas (ya sea metodos, atributos o asi) con el mismo nombre
+        pero que haran cosas distintas, y pues esto en programacion estructurada no era posible. Cabe recalcar
+        que el polimorfismo no aplica en POO si se nombran dos cosas de la misma manera y hacen exactamente lo
+        mismo, reciben los mismos parametros y retornar el mismo tipo de dato; para que exista polimorfismo en
+        POO, si o si debe haber por lo menos un parametro o un dato distinto, por mas minimo que sea.
+        - Encapsulamiento: El principio de encapsulamiento se basa en tomar en cuenta unicamente la funcion o
+        definicion del metodo o atributo, mas no la forma en la que se estrcuturaron o redactaron. Es decir,
+        solo importa la ejecución. En POO, es importante ocultar o encapsular la informacion para programar mas
+        eficientemente. Con este concpeto de ocultamiento se suman 4 palabras que se trabajaran en POO: "public",
+        "private", "protectec", "default". En POO se exige que "todo método debe ser publico" y que toda
+        propiedad debe ser privada". */
 
 
 /*La siguiente clase resulta ser como el 'main' principal donde se ubicaran los objetos junto a sus atributos
@@ -18,64 +30,107 @@ public class EjemploAutos {
     public static void main(String[] args) { /*Para evitar redactar toda esta parte manualmente podemos usar un
     comando de abreviatura que se escribe como 'psvm'*/
 
-        /*A continuación se instanciaran los objetos a partir de la clase en la que estan definidas sus
-        atributos y métodos. En el caso de esta ejemplo se instanciaran los objetos considerando la clase
-        'Autos':*/
-        Autos Chevrolet = new Autos();
-        Autos Toyota = new Autos();
-        Autos Hyundai = new Autos();
-        Autos Suzuki = new Autos();
-        Autos Ford = new Autos();
+        /*Instaciamiento de objetos a partir de la clase 'Autos':*/
+//        Autos Chevrolet = new Autos();
+//        Autos Toyota = new Autos();
+//        Autos Hyundai = new Autos();
+//        Autos Suzuki = new Autos();
+//        Autos Ford = new Autos();
 
-        /*Ya con estos objetos creados a partir de la clase 'Autos', ahora se pueden heredar los atributos de la
-        clase a estos objetos, para que ahora pasen de ser 'atributos de la clase' a ser 'atributos del objeto',
-        y logicamente ahora a estos atributos del objeto se le pueden dar valores:  */
-        Chevrolet.Marca = "Chevrolet"; /*Recordemos que estas propiedades (Modelo, Marca, Color) fueron
-        declaradas como strings, por eso es que estos valores que ahora se les da se colocan entre comillas*/
-        Chevrolet.Modelo = "Aveo";
-        Chevrolet.Color = "Azul";
-        Chevrolet.Cilindraje = 4.5;  /*Esta ultimo atributo contiene un valor tipo double, pues asi fue
-        declarado en la clase principal*/
+        /*Instaciamiento de objetos y asignacion de valores de sus atributos empleando el concepto de
+        'constructor':*/
+        Autos Chevrolet = new Autos("Chevrolet", "Aveo", "Azul", 4.5);
+        Autos Toyota = new Autos("Toyota", "Toyotita", "Negro", 3.6);
+        Autos Hyundai = new Autos("Hyundai", "Tukson", "Blanco", 3.87);
+        Autos Suzuki = new Autos("Suzuki", "Suzukisito", "Rosado",6.66);
+        Autos Ford = new Autos("Ford", "Fordsito", "Rojo", 8.88);
 
-        Toyota.Marca = "Toyota";
-        Toyota.Modelo = "Toyotita";
-        Toyota.Color = "Negro";
-        Toyota.Cilindraje = 3.6;
+        /* Valores asignados manualmente a estos atributos del objeto: */
+//        Chevrolet.marca = "Chevrolet";
+//        Chevrolet.modelo = "Aveo";
+//        Chevrolet.color = "Azul";
+//        Chevrolet.cilindraje = 4.5;
+//
+//        Toyota.marca = "Toyota";
+//        Toyota.modelo = "Toyotita";
+//        Toyota.color = "Negro";
+//        Toyota.cilindraje = 3.6;
+//
+//        Hyundai.marca = "Hyundai";
+//        Hyundai.modelo = "Tukson";
+//        Hyundai.cilindraje = 2.7;
+//
+//        Suzuki.marca = "Suzuki";
+//        Suzuki.modelo = "Suzukisito";
+//        Suzuki.color = "Blanco";
+//        Suzuki.cilindraje = 3.3;
+//
+//        Ford.marca = "Ford";
+//        Ford.modelo = "Fordsito";
+//        Ford.color = "Gris";
+//        Ford.cilindraje = 3.7;
 
-        Hyundai.Marca = "Hyundai";
-        Hyundai.Modelo = "Tukson";
-        Hyundai.Cilindraje = 2.7;
+        /*Asignacion de valores a los atributos de los objetos considerando los metodos de 'asignacion':*/
+//        Chevrolet.asignarMarca("Chevrolet");
+//        Chevrolet.asignarModelo("Aveo");
+//        Chevrolet.asignarColor("Rojo");
+//        Chevrolet.asignarCilindraje(32.5);
+//
+//        Toyota.asignarMarca("Toyota");
+//        Toyota.asignarModelo("Toyotita");
+//        Toyota.asignarColor("Amarillo");
+//        Toyota.asignarCilindraje(3.53);
+//
+//        Suzuki.asignarMarca("Suzuki");
+//        Suzuki.asignarModelo("Suzukisito");
+//        Suzuki.asignarColor("Negro");
+//        Suzuki.asignarCilindraje(2.45);
+//
+//        Ford.asignarMarca("Ford");
+//        Ford.asignarModelo("Forsita");
+//        Ford.asignarColor("Blanco");
+//        Ford.asignarCilindraje(4.44);
 
-        Suzuki.Marca = "Suzuki";
-        Suzuki.Modelo = "Suzukisito";
-        Suzuki.Color = "Blanco";
-        Suzuki.Cilindraje = 3.3;
-
-        Ford.Marca = "Ford";
-        Ford.Modelo = "Fordsito";
-        Ford.Color = "Gris";
-        Ford.Cilindraje = 3.7;
-
-        /*Por último cabe recalcar que aunque se le de un valor a un atributo directamente en la clase principal,
-        si se le asigna otro valor ya siendo 'atributo del objeto', se considerara este ultimo valor asignado por
-        encima del valor asignado siendo 'atributo de la clase'. Por ejemplo colocamos un valor en el atributo
-        'Color' en la clase principal, pero tambien le dimos otro valor a este atributo ahora en los objetos,
-        entonces se considerara este ultimo valor asignado. Espero se entienda xd*/
+        /*Asignacion de valores a los atributos de los objetos considerando los metodos de 'asignacion'
+        correctamente nombrados:*/
+//        Chevrolet.setMarca("Chevrolet");
+//        Chevrolet.setModelo("Aveo");
+//        Chevrolet.setColor("Rojo");
+//        Chevrolet.setCilindraje(32.5);
+//
+//        Toyota.setMarca("Toyota");
+//        Toyota.setModelo("Toyotita");
+//        Toyota.setColor("Amarillo");
+//        Toyota.setCilindraje(3.53);
+//
+//        Hyundai.setMarca("Hyundia");
+//        Hyundai.setModelo("Tukson");
+//        Hyundai.setColor("Azul");
+//        Hyundai.setCilindraje(5.66);
+//
+//        Suzuki.setMarca("Suzuki");
+//        Suzuki.setModelo("Suzukisito");
+//        Suzuki.setColor("Negro");
+//        Suzuki.setCilindraje(2.45);
+//
+//        Ford.setMarca("Ford");
+//        Ford.setModelo("Forsita");
+//        Ford.setColor("Blanco");
+//        Ford.setCilindraje(4.44);
 
 
         /*A continuación se declaran las clases "println" (al ser una clase se redacta el comando empezando en
         mayúsculas). Estas clases son, por asi decirlo, los camandos que permitiran obtener una salida de
         impresion.*/
-        System.out.println("Marca: " + Toyota.Marca);  /*Para evitar colocar todo esto de 'System.out.println'
-        basta con colocar 'sout' y automaticamente se colocara todo el comando*/
-        System.out.println("Modelo: " + Toyota.Modelo); /*Como se observa el formato de salida de impresion que
+        System.out.println("Marca: " + Toyota.getMarca());
+        System.out.println("Modelo: " + Toyota.getModelo()); /*Como se observa el formato de salida de impresion que
         deseemos obtener se coloca como parametro de la clase 'printline'. En estos parametros se esta invocando
         al objeto y sus atributos, para esto hay que colocar el nombre del objeto seguido por un punto y el
         atributo que queramos emplear como parametro, es decir asi: 'NomObjeto.Atribut'.
         Y como se observa hacemos lo mismo en el resto de clases 'printline', cuyos parametros son strings que
         se concatenan con atributos de los objetos*/
-        System.out.println("Color: " + Toyota.Color);
-        System.out.println("Cilindraje: " + Toyota.Cilindraje);
+        System.out.println("Color: " + Toyota.getColor());
+        System.out.println("Cilindraje: " + Toyota.getCilindraje());
 
         /*Y de la misma forma procederiamos con los atributos de los otros objetos:
         System.out.println("Marca: " + Chevrolet.Marca);
@@ -114,13 +169,13 @@ public class EjemploAutos {
         peculiaridad respecto a este tema de datos flotantes, es que si no especifamos que nuestros valores son
         valores flotantes colocando la letra 'f', el sistema sobreentendera que estos valores son enteros tipo
         'double'*/
-        System.out.println("\nEl combustible del auto " + Hyundai.Marca + " es de " + Hyundai.combustible(34.33f, 21.22f)+ " km/gln");
+        System.out.println("\nEl combustible del auto " + Hyundai.getMarca() + " es de " + Hyundai.combustible(34.32f, 21.64f)+ " km/gln");
 
         /*Invocacion del otro metodo 'combustible' que igual retornara un dato tipo float como en el anterior,
         pero ahora enviara parametros de tipo entero. El sistema sabe a cual de los metodos llamar solamente
         identificando el tipo de parametros enviados, es decir ahora se enviaron valores enteros como parametro
         entonces el sistema sabe que estamos invocando al segundo metodo 'combustible':*/
-        System.out.println("\nEl combustible del auto " + Chevrolet.Marca + " es de " + Chevrolet.combustible(32, 22)+ " km/gln");
+        System.out.println("\nEl combustible del auto " + Chevrolet.getMarca() + " es de " + Chevrolet.combustible(32, 22)+ " km/gln");
 
         /*Esto de declarar un metodo con varios tipos de variables de distinto tipo de dato como parametros, se
         llama 'sobrecarga de metodos'*/
