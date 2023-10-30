@@ -30,12 +30,7 @@ public class EjemploAutos {
     public static void main(String[] args) { /*Para evitar redactar toda esta parte manualmente podemos usar un
     comando de abreviatura que se escribe como 'psvm'*/
 
-        /*Instaciamiento de objetos a partir de la clase 'Autos':*/
-//        Autos Chevrolet = new Autos();
-//        Autos Toyota = new Autos();
-//        Autos Hyundai = new Autos();
-//        Autos Suzuki = new Autos();
-//        Autos Ford = new Autos();
+
 
         /*Instaciamiento de objetos y asignacion de valores de sus atributos empleando el concepto de
         'constructor':*/
@@ -162,22 +157,11 @@ public class EjemploAutos {
         System.out.println(Ford.frenado(44,21));
         System.out.println(Hyundai.frenado(45, 12));
 
-        /*Invocando el métedo que cálcula combustible, en donde enviaremos como parametro datos tipo float. En
-        java cuando enviamos estos parametros tipo float hay que recalcar que son float, para esto se debe
-        colocar la letra 'f' minuscula despues del numero flotante que quereamos enviar como parametro (por
-        ejemplo: 4.67f), y obviamente es en minuscula porque estamos hablando de un dato, no de una clase. Una
-        peculiaridad respecto a este tema de datos flotantes, es que si no especifamos que nuestros valores son
-        valores flotantes colocando la letra 'f', el sistema sobreentendera que estos valores son enteros tipo
-        'double'*/
+
         System.out.println("\nEl combustible del auto " + Hyundai.getMarca() + " es de " + Hyundai.combustible(34.32f, 21.64f)+ " km/gln");
 
-        /*Invocacion del otro metodo 'combustible' que igual retornara un dato tipo float como en el anterior,
-        pero ahora enviara parametros de tipo entero. El sistema sabe a cual de los metodos llamar solamente
-        identificando el tipo de parametros enviados, es decir ahora se enviaron valores enteros como parametro
-        entonces el sistema sabe que estamos invocando al segundo metodo 'combustible':*/
+
         System.out.println("\nEl combustible del auto " + Chevrolet.getMarca() + " es de " + Chevrolet.combustible(32, 22)+ " km/gln");
 
-        /*Esto de declarar un metodo con varios tipos de variables de distinto tipo de dato como parametros, se
-        llama 'sobrecarga de metodos'*/
     }
 }
